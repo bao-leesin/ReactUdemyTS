@@ -1,5 +1,5 @@
 import {  PortraitOutlined } from "@mui/icons-material";
-import { Avatar, Box, Button, FormControl, Paper, Slide, TextField } from "@mui/material";
+import { Avatar, Box, Button, Slide, TextField } from "@mui/material";
 import { Account } from "../../models/Account";
 import nameof from "../../utils";
 
@@ -16,8 +16,8 @@ export default function SignIn() {
 
 return (
 <Slide in = {true} direction="left" mountOnEnter unmountOnExit >
-<FormControl  >
-    <Avatar component={PortraitOutlined}  sx={{m:1}} />
+<Box  display={"flex"} flexDirection={"column"} alignItems={"center"} mx={4} my={8}>
+    <Avatar  component={PortraitOutlined}  sx={{m:1 }} />
     <Box component="form">
     <TextField  
     name={nameof<Account>('username')}
@@ -35,16 +35,16 @@ return (
     fullWidth
     required
     type="password"
+    
     />
-
 </Box>
 
 <Button fullWidth type="submit" variant="contained" 
 // sx={{backgroundColor: color => color.palette.mode === 'light' }} 
 > 
+{SignIn.name}
     </Button>
-
-</FormControl>
+</Box>
 </Slide>
 
 )    
