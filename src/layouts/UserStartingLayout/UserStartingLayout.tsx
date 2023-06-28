@@ -1,5 +1,5 @@
 import { Grid, ThemeProvider, createTheme } from "@mui/material";
-import SignIn from "./SignIn";
+import SignIn from "./SignIn/SignIn";
 import SignUp from "./SignUp";
 
 const isLogin = true;
