@@ -5,6 +5,15 @@ export  class Account {
         this.username = username
         this.password = password
     }
+
+    
+    private ValidateSignUp({username,password}:Account) {
+        
+    }
+
+    private ValidateSignIn({username,password}:Account){
+
+    }
 }
 
 export  class User extends Account {
