@@ -8,13 +8,13 @@ export default function UserStartingLayout() {
     return(
         <ThemeProvider theme={createTheme()}>
         <Grid container sx={{ height: '100vh'  }} component={"main"} wrap="nowrap" >
-        <Grid  item xs={false} sm={4}  md={7} xl = {9} sx={
+        <Grid  item xs={false}   md={7} sx={
         {backgroundImage: 'url(https://source.unsplash.com/random?wallpapers)',
         backgroundSize: 'cover',
         backgroundPosition: 'center'
     }}
     />  
-        <Grid item xs={12} sm={8} md={5} xl={3}
+        <Grid item xs={12}  md={5} 
         component={isLogin ? SignIn : SignUp} /> 
         </Grid>
         </ThemeProvider>

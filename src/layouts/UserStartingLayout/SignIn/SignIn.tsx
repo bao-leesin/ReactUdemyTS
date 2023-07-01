@@ -1,5 +1,5 @@
-import {Facebook, Google, Portrait } from "@mui/icons-material";
-import {  Slide } from "@mui/material";
+import { Facebook, Google, Label, Portrait } from "@mui/icons-material";
+import { Slide } from "@mui/material";
 import { Account } from "../../../models/Account";
 import nameof from "../../../utils";
 import { useForm } from "react-hook-form";
@@ -25,7 +25,7 @@ export default function SignIn() {
             title={resource.en.Username}
             type="text"
             className="form-login__input"
-            placeholder= {resource.vn.RequireType +" "+ resource.vn.Username}
+            placeholder={resource.vn.RequireType + " " + resource.vn.Username}
             {...register(nameof<Account>("username"))}
             autoFocus
           />
@@ -36,14 +36,38 @@ export default function SignIn() {
             {...register(nameof<Account>("password"))}
           />
         </div>
-        <input type="checkbox"></input>
         <div>
-          <a className="Link"></a>
-          <a className="Link"></a>
+        <input type="checkbox"></input>
+        <label>sdsdsd</label>
+        </div>
+        <div className="LinkInLoginForm">
+          <a className="ForgotPasswordLink" href="#">
+            fffffffffffff
+          </a>
+          <a className="SignUpLink" href="#">
+            sissssssssssssssssss
+          </a>
         </div>
         <button type="submit">{SignIn.name}</button>
-        <Facebook/>
-        <Google/>
+        <label>Or Sign In By</label>
+        <div className="IconInFormLogin">
+          <a href="#"   className="SignInByFacebookLink">
+            {" "}
+            <Facebook
+            
+              color="info"
+              fontSize="large"
+            />
+          </a>
+          <a href="#"  className="SignInByGoogleLink">
+            {" "}
+            <Google
+             
+              color="warning"
+              fontSize="large"
+            />
+          </a>
+        </div>
       </form>
     </Slide>
   );
