@@ -7,7 +7,7 @@ const isLogin = true;
 export default function UserStartingLayout() {
     return(
         <ThemeProvider theme={createTheme()}>
-        <Grid container sx={{ height: '100vh'  }} component={"main"} >
+        <Grid container sx={{ height: '100vh'  }} component={"main"} wrap="nowrap" >
         <Grid  item xs={false} sm={4}  md={7} xl = {9} sx={
         {backgroundImage: 'url(https://source.unsplash.com/random?wallpapers)',
         backgroundSize: 'cover',
