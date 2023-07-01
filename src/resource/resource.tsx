@@ -1,7 +1,8 @@
 const vn =  {
     SignIn : "Đăng nhập",
     Username: "Tên đăng nhập",
-    Password: "Mật khẩu"
+    Password: "Mật khẩu",
+    RequireType: "Hãy nhập"
 }
 
 const en = {
