@@ -16,7 +16,7 @@ export  class Account {
     }
 }
 
-export  class User extends Account {
+export class User extends Account {
     email: string 
     constructor(username: string, password: string, email: string) {
         super(username,password)
