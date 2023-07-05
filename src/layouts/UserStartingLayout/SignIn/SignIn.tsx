@@ -1,17 +1,18 @@
 import { Facebook, Google, Portrait } from "@mui/icons-material";
 import { Slide } from "@mui/material";
-import { Account } from "~/models/Account";
-import nameof from "../../../utils";
+import nameof from "~/utils/module/nameof";
 import { useForm } from "react-hook-form";
 import "./SignIn.scss";
-import LabelResource from "~/utils/resource/Label";
+import { LabelResource, PlaceHolderResource } from "~/utils/resource";
+import { useEffect } from "react";
+import { Account } from "~/models";
 
 
 const onFormSubmit = (data: any) => console.log(data);
 const onErrors = (errors: any) => console.error(errors);
 
 export default function SignIn() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm({ criteriaMode: 'firstError' });
 
   return (
     <Slide in={true} direction="left" mountOnEnter unmountOnExit>
@@ -19,51 +20,51 @@ export default function SignIn() {
         onSubmit={handleSubmit(onFormSubmit, onErrors)}
         className="form-login"
       >
-        <Portrait sx={{ fontSize: 100 }} />
-        <div className="container">
-          <label className="form-login__label"> {LabelResource.Username}</label>
+        <Portrait sx={{ fontSize: 100, color: " #FFC7C7" }} />
+        <div className="container__input_login">
+          {/* <label className="form-login__label"> {LabelResource.Username}</label> */}
           <input
             title={LabelResource.Username}
             type="text"
             className="form-login__input"
-            placeholder={""}
-            {...register(nameof<Account>("username"))}
-            autoFocus
+            placeholder={PlaceHolderResource.PleaseEnterUsername}
+            {...register(nameof<Account>("username"), { required: "sfb", minLength: { value: 8, message: "dai hon" }, maxLength: { value: 16, message: "ngan hon" } })}
+            autoFocus={true}
           />
-          <label> {LabelResource.Password} </label>
+          <p>{errors.username?.message?.toString()}</p>
           <input
-            type="password"
             className="form-login__input"
-            {...register(nameof<Account>("password"))}
+            type="password"
+            placeholder={PlaceHolderResource.PleaseEnterPassword}
+            {...register(nameof<Account>("password"), { required: "sfb", minLength: { value: 8, message: "dai hon" }, maxLength: { value: 16, message: "ngan hon" } })}
           />
+          <p>{errors.username?.message?.toString()}</p>
         </div>
-        <div>
-        <input type="checkbox"></input>
-        <label>{LabelResource.RememberMe}</label>
+        <div className="RememberMeCheckbox">
+          <input type="checkbox"></input>
+          <label>{LabelResource.RememberMe}</label>
         </div>
         <div className="LinkInLoginForm">
           <a className="ForgotPasswordLink" href="#">
-            fffffffffffff
+            {LabelResource.ForgotPasswordLink}
           </a>
           <a className="SignUpLink" href="#">
-            sissssssssssssssssss
+            {LabelResource.SignUpLink}
           </a>
         </div>
-        <button type="submit">{SignIn.name}</button>
-        <label>Or Sign In By</label>
+        <button type="submit" className="form-login__btn_login">{LabelResource.Login}</button>
+
         <div className="IconInFormLogin">
-          <a href="#"   className="SignInByFacebookLink">
-            {" "}
+          <a href="#" className="SignInByFacebookLink">
+
             <Facebook
-            
               color="info"
               fontSize="large"
             />
           </a>
-          <a href="#"  className="SignInByGoogleLink">
-            {" "}
+          <a href="#" className="SignInByGoogleLink">
+
             <Google
-             
               color="warning"
               fontSize="large"
             />
@@ -73,3 +74,7 @@ export default function SignIn() {
     </Slide>
   );
 }
+
+
+
+
