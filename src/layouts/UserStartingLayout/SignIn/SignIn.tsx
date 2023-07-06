@@ -4,7 +4,6 @@ import nameof from "~/utils/module/nameof";
 import { useForm } from "react-hook-form";
 import "./SignIn.scss";
 import { LabelResource, PlaceHolderResource } from "~/utils/resource";
-import { useEffect } from "react";
 import { Account } from "~/models";
 
 
@@ -13,6 +12,7 @@ const onErrors = (errors: any) => console.error(errors);
 
 export default function SignIn() {
   const { register, handleSubmit, formState: { errors } } = useForm({ criteriaMode: 'firstError' });
+
 
   return (
     <Slide in={true} direction="left" mountOnEnter unmountOnExit>
@@ -28,17 +28,17 @@ export default function SignIn() {
             type="text"
             className="form-login__input"
             placeholder={PlaceHolderResource.PleaseEnterUsername}
-            {...register(nameof<Account>("username"), { required: "sfb", minLength: { value: 8, message: "dai hon" }, maxLength: { value: 16, message: "ngan hon" } })}
+            {...register(nameof<Account>("username"), { required: "errorMessages.requiredMessage", minLength: { value: 8, message: "dai hon" }, maxLength: { value: 16, message: "ngan hon" } })}
             autoFocus={true}
           />
-          <p>{errors.username?.message?.toString()}</p>
+           <p className="form-login__p_error">{errors.username?.message?.toString()}</p>
           <input
             className="form-login__input"
             type="password"
             placeholder={PlaceHolderResource.PleaseEnterPassword}
-            {...register(nameof<Account>("password"), { required: "sfb", minLength: { value: 8, message: "dai hon" }, maxLength: { value: 16, message: "ngan hon" } })}
+            {...register(nameof<Account>("password"), { required:" errorMessages.requiredMessage" , minLength: { value: 8, message: "dai hon" }, maxLength: { value: 16, message: "ngan hon" } })}
           />
-          <p>{errors.username?.message?.toString()}</p>
+          <p className="form-login__p_error">{errors.password?.message?.toString()}</p>
         </div>
         <div className="RememberMeCheckbox">
           <input type="checkbox"></input>

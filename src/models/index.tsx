@@ -13,19 +13,3 @@ export class User extends Account {
         this.email = email
     }
 }
-// export class Error{
-//     length?: number
-//     id?:number
-
-//     Require(param: string) : string{
-
-//     }
-
-//     RequireLong(params:number) : string {
-        
-//     }
-
-//     RequireShort(params:number) : string {
-//         return ""
-//     }
-// }
