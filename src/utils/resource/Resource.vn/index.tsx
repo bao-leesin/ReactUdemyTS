@@ -1,5 +1,5 @@
-import ErrorVn  from "./Error.vn.json";
-import LabelVn  from "./Label.vn.json";
+import ErrorVn  from "./Error.vn";
+import LabelVn  from "./Label.vn";
 
-export default {ErrorVn,LabelVn}
+export default {... ErrorVn,...LabelVn}
 

@@ -1,4 +1,6 @@
-import ErrorEn from "./Error.en.json"
-import LabelEn from "./Label.en.json"
+import ErrorEn from "./Error.en";
+import LabelEn from "./Label.en";
 
-export default {ErrorEn,LabelEn}
+export default {... ErrorEn,...LabelEn}
+
+
