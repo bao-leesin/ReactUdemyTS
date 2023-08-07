@@ -1,9 +1,9 @@
 import { Grid, ThemeProvider, createTheme } from "@mui/material";
 import SignIn from "./SignIn/SignIn";
-import SignUp from "./SignUp";
+import SignUp from "./SignUp/SignUp";
 import { useTransition } from "react";
 
-const isLogin = true;
+const isLogin = false;
 
 export default function UserStartingLayout() {
     

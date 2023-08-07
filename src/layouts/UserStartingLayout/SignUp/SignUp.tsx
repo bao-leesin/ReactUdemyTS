@@ -2,8 +2,8 @@ import { Facebook, Google, Portrait } from "@mui/icons-material";
 import { Slide } from "@mui/material";
 import nameof from "~/utils/module/nameof";
 import { useForm } from "react-hook-form";
-import "./SignIn.scss";
-import { Account } from "~/models";
+import "./SignUp.scss";
+import { Account, User } from "~/models";
 import { useTranslation } from "react-i18next";
 
 const onFormSubmit = (data: any) => console.log(data);
@@ -26,6 +26,7 @@ export default function SignIn() {
             title={t('Username')}
             type="text"
             className="form-login__input"
+            placeholder={t('Username')}
             {...register(nameof<Account>("Username"), { required: t('Required'), minLength: { value: 8, message: t('MinLength') + 8 }, maxLength: { value: 16, message: t('MaxLength') } })}
             autoFocus={true}
           />
@@ -33,9 +34,17 @@ export default function SignIn() {
           <input
             className="form-login__input"
             type="password"
+            placeholder={t('Password')}
             {...register(nameof<Account>("Password"), { required:t('Required'), minLength: { value: 8, message: t('MinLength') + 8 }, maxLength: { value: 16, message: t('MaxLength') } })}
           />
-          <p className="form-login__p_error">{errors.password?.message?.toString()}</p>
+            <p className="form-login__p_error">{errors.password?.message?.toString()}</p>
+          <input
+            className="form-login__input"
+            type="email"
+            placeholder={t('Email')}
+            {...register(nameof<User>("email"), { required:t('Required') })}
+          />
+          <p className="form-login__p_error">{errors.email?.message?.toString()}</p>
         </div>
         <div className="RememberMeCheckbox">
           <input type="checkbox"></input>
@@ -51,7 +60,6 @@ export default function SignIn() {
         </div>
         <button type="submit" className="form-login__btn_login">{t("Login")}</button>
 <span>
-  <img src="/Content/Images/Collateral_Red-Exclamation.png" alt="" />
 </span>
         <div className="IconInFormLogin">
           <a href="#" className="SignInByFacebookLink">

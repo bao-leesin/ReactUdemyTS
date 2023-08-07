@@ -1,15 +1,15 @@
 export  class Account {
-    username: string
-    password: string
-    constructor(username: string, password: string) {
-        this.username = username
-        this.password = password
+    Username: string
+    Password: string    
+    constructor(Username: string, Password: string) {
+        this.Username = Username
+        this.Password = Password
     }
 }
 export class User extends Account {
     email: string 
-    constructor(username: string, password: string, email: string) {
-        super(username,password)
+    constructor(Username: string, Password: string, email: string) {
+        super(Username,Password)
         this.email = email
     }
 }

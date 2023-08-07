@@ -1,0 +1,76 @@
+.form-login{
+display: flex;
+flex-direction: column;
+align-items: center;
+margin: 5% auto;
+}
+
+.container__input_login{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: 30px 0 10px 0;
+    input{
+        font-size: large;
+        padding: 15px;
+        border: 1px solid #FFE2E2;
+        border-radius: 5px
+        }
+        label{
+            font-size: large;
+        }
+
+    .form-login__p_error{
+        color: red;
+    }
+}
+
+.RememberMeCheckbox{
+    align-self: self-start;
+    font-size: large;
+    margin-bottom: 30px;
+    input[type="checkbox"]{
+        transform: scale(1.5);
+        margin-right: 10px;
+    }
+}
+
+.LinkInLoginForm{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    a:link{
+        text-decoration: none;
+    }
+}
+
+.form-login__btn_login{
+    font-size: 18px;
+    width: 100%;
+    height: 56px;
+    padding: 5px;
+    margin: 15px 0;
+    border: none;
+    text-transform: uppercase;
+    background-color: #EA906C;
+    color: #ffffff;
+    cursor: pointer;
+    transition-property: background-color;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+    transition-delay: 0.25s;
+
+    &:focus{
+        background-color: rgb(170, 40, 40); 
+    }
+}
+
+.IconInFormLogin{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+
+
